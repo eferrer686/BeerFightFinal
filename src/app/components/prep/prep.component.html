@@ -1,0 +1,83 @@
+<div id="main" class="prep">
+
+  <button (click)="goToPlay()">Return</button>
+  <!-- Para Sidenav -->
+  <div class="prepConfig">
+    <form [formGroup]="formPrep">
+
+
+      <div class="container nPlayers">
+        <div class="row ">
+          <div class="col-xs-12 col-sm-6">
+            <p>Players:</p>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <input formControlName="players" type="number" name="" value="10">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <p>Drink:</p>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <select formControlName="type" name="" id="">
+              <option value="can">Beer</option>
+              <option value="bottle">Rum</option>
+              <option value="bottle">Whiskey</option>
+              <option value="bottle">Vodka</option>
+              <option value="bottle">Tequila</option>
+              <option value="bottle">Gin</option>
+              <option value="wine">Wine</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <p># of cups:</p>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <input formControlName="cups" type="number" name="" id="" value="6">
+          </div>
+        </div>
+        <button class="middleBtn" (click)="calculate()">Calculate</button>
+      </div>
+    </form>
+  </div>
+  <hr>
+  <div class="container prepCuantity">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <h1>{{ liters }} liters</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <h1>{{specs}}</h1>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="stores">
+    <div class="container prepStores">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <h1>Nearby Stores</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="mapPrep">
+            <img src="assets/MapaOxxo.png" alt="mapita">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

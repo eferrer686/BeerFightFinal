@@ -1,0 +1,102 @@
+@import "src/scss/colors.scss";
+@import "src/scss/mixins.scss";
+
+
+
+.selectRule{
+    color: white;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 20px;
+   
+    .container{
+      @include squareButton;
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px;
+    }
+    select{
+      background-color: $greenDark2;
+      color: white;
+      text-align: center;
+      border: none;
+      width: 90%;
+      height: 100%;
+      font-size: 16px;
+    }
+  }
+  
+  .listRules{
+    color: white;
+    font-size: 18px;
+    width: 80%;
+    @include squareButton;
+    margin: 20px auto;
+    text-align: center;
+  
+
+
+
+        .saveButton{
+            @include normalButtonInv;
+        }
+        .saveButton:hover{
+            @include normalButtonInvHover;
+        }
+
+        input[type=text]{
+            @include inputText;
+            width: 100%;
+            margin: 10px auto;
+        }
+        ol,li{
+            width: 100%;
+        }
+        hr{
+            width: 90%;
+            border: 1px solid $greenDark2;
+        }
+
+        .warning{
+            color: yellowgreen;
+        }
+    }
+
+
+
+.bottom{
+    
+    bottom: 50px;
+    width: 100%;
+    margin: 10px auto;
+
+    .newRule{
+        width: 100;
+        margin: 0 auto;
+
+        button{
+            
+            @include nextButton;
+            
+            margin: 0 auto;
+            width: 100%;
+            
+        }
+        button:hover{
+            @include nextButtonHover;
+            
+        }
+    }
+}
+
+.returnButton{
+
+    @include nextButton;
+
+}
+.returnButton:hover{
+
+    @include nextButtonHover;
+
+}

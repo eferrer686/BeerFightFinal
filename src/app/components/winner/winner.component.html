@@ -1,0 +1,43 @@
+<div class="win">
+  <!-- Titulo -->
+  <div class="container table">
+    <div class="row">
+      <div class="col-12">
+        <h2>Winner!</h2>
+      </div>
+    </div>
+    <!-- Integrantes -->
+    <div class="row">
+      <div class="col-12" *ngFor="let challenger of tournament.winner.challengers">
+        <p>{{challenger}}</p>
+      </div>
+    </div>
+    <!-- Trofeo -->
+    <div class="row">
+      <div class="col-12">
+        <img src="assets/trophy.png" alt="">
+      </div>
+    </div>
+    <!-- Stats -->
+    <div class="row">
+      <div class="col-12">
+        <p>Time of tournament: {{time}}s</p>
+      </div>
+    </div>
+    <!-- Puntos a favor -->
+    <div class="row">
+      <div class="col-12">
+        <p>Score in favor: {{pointsInFavor}} </p>
+      </div>
+    </div>
+    <!-- Puntos en contra -->
+    <div class="row">
+      <div class="col-12">
+        <p>Score against: {{pointsAgainst}}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <input type="button" name="" value="Home" (click)="goToPlay()">
+</div>

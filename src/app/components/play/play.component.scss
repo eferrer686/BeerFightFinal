@@ -1,0 +1,33 @@
+@import "src/scss/colors.scss";
+@import "src/scss/mixins.scss";
+
+.playBody{
+    @include body;
+  }
+  
+  #main{
+    @include main;
+  
+    .playMenu{
+      text-align: center;
+    }
+    .playBox{
+      @include squareButton;
+      margin: 10px auto;
+  
+    }
+    .playBox:hover{
+      @include squareButtonHover;
+    }
+  }
+button{
+  @include nextButton;
+  background-color: rgb(165, 0, 0);
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+}
+button:hover{
+  @include nextButtonHover;
+  background-color: red; 
+}

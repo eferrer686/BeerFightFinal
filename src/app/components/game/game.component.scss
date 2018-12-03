@@ -1,0 +1,83 @@
+@import "src/scss/colors.scss";
+@import "src/scss/mixins.scss";
+h1{
+    color: white;
+    text-align: center;
+    margin: 10px;
+}
+.playing{
+  color:white;
+  text-align: center;
+  width: 80%;
+  margin: 5vh auto;
+  font-size: 20px;
+  height: 70vh;
+  
+
+  .game{
+    @include squareButton;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    hr{
+        margin: 40px auto;
+        border: 2px solid white;
+        background: white;
+        text-align: center;
+    }
+
+    h2 {
+        width: 100%;
+        text-align: center;
+        border: none;
+        background: none;
+        color: white;
+        font-size: 64px;
+        font-weight: bolder;
+        -moz-appearance: textfield;
+        
+    }
+
+    .scoreBtn {
+        
+        width: 100%;
+        margin: 15px auto;
+        position: relative;
+        display: block;
+        margin: 15px 34%;
+
+        h6{
+            width: 48px;
+            height: 48px;
+            border-radius: 100%;
+            background-color: $greenMain;
+            font-size: 36px;
+            transition: 0.2s;
+            text-align: center;
+            
+        }
+        h6:hover{
+            background-color: $greenDark2;
+            cursor: pointer;
+        }
+    }
+  }
+}
+
+input[type=button]{
+    @include nextButton;
+    margin: 0;
+    width: 100px;
+    height: 50px;
+    right: 20px;
+    position: absolute;
+  }
+  input[type=button]:hover{
+    @include nextButtonHover;
+  }

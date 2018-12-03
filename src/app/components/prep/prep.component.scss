@@ -1,0 +1,114 @@
+@import "src/scss/colors.scss";
+@import "src/scss/mixins.scss";
+
+
+.prep{
+  color: white;
+  text-align: center;
+  margin: 10px auto;
+  .nPlayers, .drinkType{
+    
+    @include squareButton;
+    width: 90%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin: 0 auto; 
+
+    p{
+      margin-top:20px;
+    }
+
+    input[type=text]{
+      width: 100%;
+      background-color: $greenDark2;
+      border: none;
+      padding: 20px;
+    }
+
+    input[type=number],select{
+        background-color: $greenDark2;
+        width: 90%;
+        padding: 10px 0;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        text-align: center;
+        color: white;
+        -moz-appearance: textfield;
+    }
+    // Quitar botones de arriba y abajp
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+  }
+
+  img{
+    width: 100px;
+    margin: 0 auto;
+  }
+
+  .mapPrep img{
+    width: 500px;
+    margin: 0 auto;
+  }
+
+  hr{
+    border-color: $greenDark2;
+    border-width: 2px;
+    width: 80%;
+  }
+
+  .prepCuantity{
+    @include squareButton;
+    margin: 0 auto;
+    padding: 10px;
+    width: 90%;
+    .row{
+        width: 100%;
+    }
+    
+    img{
+      display: block;
+      margin: 0 auto;
+    }
+    h1{
+      margin-top: 20px;
+      font-size: 60px;
+    }
+    
+  }
+  .middleBtn{
+    margin: 10px auto;
+  }
+  .prepStores{
+    @include squareButton;
+    margin: 10px auto;
+    padding: 10px;
+    img{
+      margin: 10px auto;
+      display: block;
+      padding: 5px;
+      border-radius: 15px;
+      background-color: $greenDark2;
+    }
+  }
+  .stores{
+      width: 90%;
+      margin: 0 auto;
+      img{
+          width: 100%;
+        }
+    }
+  button{
+    @include nextButton;
+    margin: 10px;
+    left: 20px;
+    position: relative;
+    display: block;
+    }
+    button:hover{
+        @include nextButtonHover;
+    }
+}

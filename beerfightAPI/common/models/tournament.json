@@ -1,0 +1,41 @@
+{
+  "name": "tournament",
+  "plural": "tournaments",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "teams": {
+      "type": [
+        "object"
+      ]
+    },
+    "games": {
+      "type": [
+        "object"
+      ]
+    },
+    "winner": {
+      "type": "object"
+    },
+    "rule": {
+      "type": "object"
+    },
+    "dateBegin": {
+      "type": "date"
+    },
+    "dateFinish": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,12 @@
+{
+  "mongoDB": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://beerfightAPI:password@localhost:27017/BeerFight",
+    "database": "BeerFight",
+    "password": "password",
+    "name": "mongoDB",
+    "user": "beerfightAPI",
+    "connector": "mongodb"
+  }
+}

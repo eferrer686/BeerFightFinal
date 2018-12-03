@@ -1,0 +1,48 @@
+<!-- Beginning of page -->
+<div id="main">
+  <button (click)="goToPlay()">Return</button>
+  <div class="container stats">
+    <div class="row">
+      <div class="col-6">
+        <p>Search Name:</p>
+      </div>
+      <div class="col-6">
+        <form [formGroup]="formSearch">
+          <input formControlName="search" type="text" (keyup.enter)="update(this)">
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <div class="container stats">
+    <div class="row">
+      <div class="col-6">
+
+        <h2>Wins: {{numWins}}</h2>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <h2>Games Played: {{gamesPlayed}}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+
+        <h2>Scored: {{scored}}</h2>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-6">
+
+        <h2>Scored: {{scored}}</h2>
+
+      </div>
+
+    </div>
+  </div>
+</div>

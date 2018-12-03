@@ -1,0 +1,37 @@
+<div [ngClass]="{'hide': loginPage}" class="header">
+
+  <div id="sidenav" class="sidenav">
+    <!-- This Closes Side Nav -->
+    <a class="closebtn" (click)="closeNav()">&times;</a>
+    <h1>Spotify</h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <input #termino type="text" (keyup)='buscar(termino.value)' class="search" placeholder="Artista">
+        </div>
+      </div>
+      <div *ngIf="artista != null" class="row">
+        <div class="col-12">
+          <h2>{{artista.name}}</h2>
+        </div>
+        <div class="col-12">
+          <img src={{artista.images[0].url}} alt="">
+        </div>
+      </div>
+      <div class="row songs">
+        <div class='col-12' *ngFor="let track of topTracks">
+          <iframe [src]="track.uri | domseguro" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="openNav" (click)="openNav()">
+
+    <span id="openbtn">
+      <p>&#10606;</p>
+    </span>
+  </div>
+</div>

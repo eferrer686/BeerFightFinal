@@ -1,0 +1,60 @@
+<h1>Game</h1>
+
+<div class="playing">
+  <div class="container game">
+    <!-- Equipo 1 -->
+    <div class="row visit">
+      <div class="col" *ngFor="let challenger of currentGame.visit.challengers">
+        <p>{{challenger}}</p>
+      </div>
+    </div>
+    <!-- Marcador -->
+
+    <div class="row">
+      <!-- Marcador Equipo 1 -->
+      <div class="col">
+        <span class="scoreBtn" (click)="visitScore(-1)">
+          <h6>-</h6>
+        </span>
+      </div>
+      <div class="col-2">
+        <h2>{{currentGame.visitScore}}</h2>
+      </div>
+      <div class="col">
+        <span class="scoreBtn" (click)="visitScore(1)">
+          <h6>+</h6>
+        </span>
+      </div>
+      <!-- VS -->
+      <div class="col-12">
+        <hr>
+      </div>
+
+      <!-- Marcador Equipo 2 -->
+      <div class="col">
+        <span class="scoreBtn" (click)="localScore(-1)">
+          <h6>-</h6>
+        </span>
+      </div>
+      <div class="col-1">
+        <h2>{{currentGame.localScore}}</h2>
+      </div>
+      <div class="col">
+        <span class="scoreBtn" (click)="localScore(1)">
+          <h6>+</h6>
+        </span>
+      </div>
+    </div>
+    <!-- Boton -->
+
+
+    <!-- Equipo 2 -->
+    <div class="row local">
+      <div class="col" *ngFor="let challenger of currentGame.local.challengers">
+        <p>{{challenger}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input type="button" name="" value="next" (click)="nextGame()">

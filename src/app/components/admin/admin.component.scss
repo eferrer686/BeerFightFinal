@@ -1,0 +1,56 @@
+@import "src/scss/colors.scss";
+@import "src/scss/mixins.scss";
+
+h1{
+    color: white;
+    text-align: center;
+    margin: 20px;
+}
+.admin{
+    @include squareButton;
+    width: 90%;
+    margin: 10px auto;
+    text-align: center;
+    color: white;
+
+    .headers{
+        font-weight: bold;
+    }
+    .row{
+        width: 100%;
+        margin:0 auto;
+    }
+    .col-1,.col-2,.col-4{
+        width: 100%;
+        margin:0 auto;
+    }
+    .danger{
+        @include nextButton;
+        background-color: rgb(175, 0, 0);
+        margin: 0 auto;
+    }
+    .danger:hover{
+        @include nextButtonHover;
+        background-color: red;
+        
+    }
+    hr{
+        border: 2px solid $greenDark2;
+        width: 100%;
+    }
+    
+}
+
+.logout{
+    button{
+        @include nextButton;
+        background-color: rgb(165, 0, 0);
+        width: 100%;
+        height: 40px;
+        margin: 0 auto;
+      }
+      button:hover{
+        @include nextButtonHover;
+        background-color: red; 
+      }
+}

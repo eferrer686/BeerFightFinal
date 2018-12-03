@@ -1,0 +1,46 @@
+<div id="main">
+  <div class="container playMenu">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="playBox" (click)="goToCreate()">
+          <img src="assets/cup.png" alt="Create Party">
+          <span class="glyphicons glyphicons-beer"></span>
+          <h2>Create Party</h2>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="playBox" (click)="goToGame()">
+          <img src="assets/beer.png" alt="FastGame">
+          <h2>Fast Game</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="playBox" (click)="goToRules()">
+          <img src="assets/rules.png" alt="Rules">
+          <h2>Rules</h2>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="playBox" (click)="goToPrep()">
+          <img src="assets/bag.png" alt="Prep?">
+          <h2>Prep?</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="playBox" (click)="goToStats()">
+          <img src="assets/stats.png" alt="Create Stats">
+          <h2>Stats</h2>
+        </div>
+      </div>
+      
+      <div class="col-12">
+            <button class="danger" type="button" (click)="logout()">Logout</button>
+        </div>
+    </div>
+  </div>
+
+</div>

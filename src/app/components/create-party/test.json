@@ -1,0 +1,24 @@
+[{
+    "id": 1,
+    "userId": "asd1a354d3s",
+    "rules": "Normal",
+    "teams":{
+    "Equipo1": {
+        "Jugador1": "Ferrer",
+        "Jugador2": "Manu"
+        },
+    "Equipo2": {
+        "Jugador1": "Villa",
+        "Jugador2": "Norbi"
+        }
+    },
+    "games": {
+        "scores":{
+            
+            "Equipo 1":4,
+            "Equipo2":1
+        },
+        "winner": "Equipo1",
+        "loser": "Equipo1"    
+    }
+  }]

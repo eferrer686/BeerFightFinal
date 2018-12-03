@@ -1,0 +1,33 @@
+<h1>Administrate Users</h1>
+<div class="admin container">
+  
+
+<hr>
+<div class="row" *ngFor="let user of users">
+  <div class="col-md-4">
+    <p>{{user.id}}</p>
+  </div>
+  <div class="col-md-2">
+    <p>{{user.name}}</p>
+  </div>
+  <div class="col-md-1">
+    <p>{{user.username}}</p>
+  </div>
+  <div class="col-md-1">
+    <p>{{user.password}}</p>
+  </div>
+  <div class="col-md-1">
+    <button class='danger' type="button" (click)="delete(user)">Delete</button>
+  </div>
+  <hr>
+  
+</div>
+</div>
+<div class="container logout">
+<div class="row">
+
+  <div class="col-12">
+    <button class="danger" type="button" (click)="logout()">Logout</button>
+  </div>
+</div>
+</div>

@@ -1,0 +1,79 @@
+<!-- Beginning of page -->
+<div id="main">
+
+
+  <button class="returnButton" (click)="goToPlay()">Return</button>
+
+
+  <form [formGroup]="formRules">
+    <div class="selectRule">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <p>Selecciona un modo de juego:</p>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+
+            <select formControlName="rules">
+              <option *ngFor="let rule of rules; let i = index" value="{{i}}" (click)="setRules(rule)">{{rule.decription}}</option>
+            </select>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="listRules">
+      <div class="container">
+        <div *ngIf="newRule" class="row">
+          <div class="col-md-4">
+            <p>Name of ruleset:</p>
+          </div>
+          <div class="col-md-8">
+            <input type="text" formControlName='ruleSetName'>
+          </div>
+
+        </div>
+        <div *ngIf="newRule" class="row">
+          <div class="col">
+            <small *ngIf="formRules.controls['ruleSetName'].invalid" class="warning">Required</small>
+          </div>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <ol *ngIf="!newRule">
+              <li *ngFor="let rule of ruleSelected">
+                <p>{{rule}}</p>
+              </li>
+            </ol>
+            <ol *ngIf="newRule" formArrayName='newRules'>
+              <li *ngFor="let newRule of formRules.controls['newRules'].controls; let i = index">
+                <input type="text" [formControlName]="i" (keyup.enter)="addNewRule()">
+              </li>
+            </ol>
+          </div>
+        </div>
+        <button class="saveButton" *ngIf="newRule" type="button" value="Save Ruleset" (click)="saveNewRules()">Save
+          Ruleset</button>
+      </div>
+    </div>
+
+    <div class="container bottom">
+      <div class="row">
+        <div class="col">
+          <div class="newRule">
+            <button type="button" (click)="deleteRule()">Delete Rule</button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="newRule">
+            <button type="button" (click)="newRule = true">New Rules</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+</div>

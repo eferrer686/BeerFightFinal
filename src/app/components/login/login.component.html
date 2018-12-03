@@ -1,0 +1,58 @@
+<div class="login">
+  <form [formGroup]='formLogin' (ngSubmit)="login()">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Login</h2>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        <p>Username</p>
+      </div>
+      <div class="col-xs-12 col-sm-9">
+        <input type="text" id="username" formControlName="username">
+      </div>
+    </div>
+    <div *ngIf="formLogin.get('username').invalid && formLogin.get('username').touched" class="row">
+      <div class="col">
+        <p class="danger">Username requires 5 characters at least</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        <p>Password</p>
+      </div>
+      <div class="col-xs-12 col-sm-9">
+        <input type="password" id="password" formControlName="password">
+      </div>
+    </div>
+    <div *ngIf="formLogin.get('password').invalid && formLogin.get('username').touched" class="row">
+      <div class="col">
+        <p class="danger">Password required</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <img src="assets/facebook_icon.png" alt="Facebook">
+      </div>
+      <div class="col-4">
+        <img src="assets/google_icon.png" alt="Google">
+      </div>
+      <div class="col-4">
+        <img src="assets/twitter_icon.png" alt="Twitter">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <input type="submit" name="" value="Login">
+      </div>
+      <div class="col-6">
+        <input type="button" name="" value="Registrarse" (click)="register()">
+      </div>
+    </div>
+  
+  </div>
+</form>
+</div>

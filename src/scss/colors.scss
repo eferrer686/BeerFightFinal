@@ -1,0 +1,7 @@
+$greenMain : rgb(0, 204, 102);
+$greenDark1: darken($greenMain,10);
+$greenDark2: darken($greenDark1,5);
+$greenLight1: lighten($greenMain,10);
+$greenLight2: lighten($greenLight1,5);
+$blue1: rgb(26, 255, 198);
+$white: rgb(255,255,255);

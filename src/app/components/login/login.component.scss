@@ -1,0 +1,61 @@
+@import "src/scss/colors.scss";
+@import "src/scss/mixins.scss";
+.login{
+
+    margin: 20px auto;
+    min-width: 300px;
+    width: 50%;
+    background-color:$greenDark1;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: $greenDark2;
+    border-style: solid;
+    padding: 20px;
+    color:$white;
+    text-align: center;
+    
+    
+  
+    .container{
+      width: 100%;
+    }
+  
+    p{
+      margin: 20px auto;
+      font-size: 18px;
+    }
+  
+    input[type="text"],input[type="password"]{
+      margin: 20px auto;
+      width: 80%;
+      height: 30px;
+      color: white;
+      @include inputText;
+      background-color: $greenMain;
+    }
+    input[type="button"],input[type="submit"]{
+        margin: 10px auto;
+      @include normalButton;
+    }
+    input[type="button"]:hover,input[type="submit"]:hover{
+      @include normalButtonHover;
+    }
+    img{
+      margin: 10px;
+      width: 50px;
+      height: 50px;
+      border-radius:50%;
+      box-shadow: 1px 5px  $greenDark2;
+    }
+    img:hover{
+      margin-top: 12px;
+      cursor: pointer;
+      box-shadow: none;
+    }
+    .danger{
+        color: rgb(179, 255, 0);
+    }
+    
+  }
+
+  

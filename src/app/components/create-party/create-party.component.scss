@@ -1,0 +1,113 @@
+@import "src/scss/colors.scss";
+@import "src/scss/mixins.scss";
+
+.createPartyBody{
+    @include main;
+    width: 100%;
+
+    .inputChallenger{
+    width: 100%;
+    }
+
+    .addChallengers{
+    margin: 10px auto;
+    width: 100%;
+    
+    text-align: center;
+    background-color: $greenDark1;
+    border-radius: 5px;
+
+    max-height: 65vh;
+    overflow-y: auto;
+
+
+        input[type=text]{
+            background-color: rgba(0,0,0,0);
+            margin: 10px auto;
+            border: none;
+            width: 100%;;
+            font-size: 18px;
+            text-align: center;
+            color: white;
+
+        }
+
+        .addChallengerBtn {
+            margin: auto;
+            h6{
+                font-size: 18px;
+                width: 48px;
+                height: 48px;
+                border-radius: 100%;
+                background-color: $greenMain;
+                font-size: 36px;
+                transition: 0.2s;
+                
+            }
+            h6:hover{
+                background-color: $greenDark2;
+                cursor: pointer;
+            }
+        }
+    }
+
+    input[type=button]{
+    @include nextButton;
+    width: 100px;
+    position: absolute;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    }
+    input[type=button]:hover{
+    @include nextButtonHover;
+    }
+
+
+    .teamOptions{
+        @include squareButton;
+        
+        position: absolute;
+        padding: 0;
+        bottom: 15%;
+        width: 90%;
+
+        .container{
+            width: 100%;
+             .col-xs-6 {
+                 width: 50%;
+             }
+        }
+
+        p{
+            width: 100%;
+            text-align: right;
+        }
+        input[type=number]{
+            background-color: rgba(0,0,0,0);
+            width: 100%;
+            padding: 20px 0;
+            border: none;
+            font-size: 20px;
+            text-align: center;
+            color: white;
+            -moz-appearance: textfield;
+        }
+        // Quitar botones de arriba y abajp
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+    button{
+        @include nextButton;
+        margin: 10px;
+    }
+    button:hover{
+        @include nextButtonHover;
+        
+    }
+}
+
+  

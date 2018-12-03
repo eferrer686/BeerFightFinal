@@ -1,0 +1,70 @@
+<div class="register">
+  <form [formGroup]='formRegister'>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Registrarse</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <p>Name</p>
+        </div>
+        <div class="col-xs-6">
+          <input formControlName='name' type="text" id="name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <p>Username</p>
+        </div>
+        <div class="col-xs-6">
+          <input formControlName='username' type="text" id="username">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <p>Email</p>
+        </div>
+        <div class="col-xs-6">
+          <input formControlName='email' type="text" id="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <p>Password</p>
+        </div>
+        <div class="col-xs-6">
+          <input formControlName='password' type="password" id="password">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <p>Confirm Password</p>
+        </div>
+        <div class="col-xs-6">
+          <input formControlName='password2' type="password" id="confirmPassword" (keyup)="verifyPasswords()">
+        </div>
+      </div>
+      <div *ngIf="invalidPasswords" class="row">
+          <div class="col-xs-12">
+            <small>Passwords don't match</small>
+          </div>
+        </div>
+        <div *ngIf="invalidForm" class="row">
+            <div class="col-xs-12">
+              <small>Invalid User</small>
+            </div>
+          </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <input type="button" name="" value="Registrarse" (click)="register()">
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+<button type="button" (click)="goToLogin()">Login</button>

@@ -1,0 +1,45 @@
+<div class="createPartyBody">
+  <form [formGroup]="formChallengers">
+    <button (click)="goToPlay()">Return</button>
+  <div class="addChallengers">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12" *ngFor="let person of persons">
+          <p>{{person}}</p>
+        </div>
+      </div>
+        <div class="row inputChallenger">
+          <div *ngFor="let challenger of formChallengers.controls['challengers'].controls; let i = index"
+                formArrayName="challengers" class="col-10">
+            <input  
+                    [formControlName]="i"
+                    type="text"
+                    placeholder="add">
+          </div>
+          <div class="col-2">
+            <span class="addChallengerBtn" (click)="addChallenger()">
+              <h6>&#43;</h6>
+            </span>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="teamOptions">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <p># Team Size:</p>
+        </div>
+        <div class="col-xs-6">
+          <input formControlName="teamSize" type="number" name="" value="1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <input type="button" name="" value="Next" (click)="goToTeams()">
+</form>
+</div>
