@@ -79,7 +79,7 @@ export class CreatePartyComponent implements OnInit {
       this.notValid = true;
     }
 
-    console.log(this.formChallengers);
+    //console.log(this.formChallengers);
 
 
   }

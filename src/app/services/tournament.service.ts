@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Tournament, Team, Game } from '../interfaces/tournament.interface';
 import { Http, Headers } from '@angular/http';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TournamentService {
+
+  tournamentsCollection: AngularFirestoreCollection;
 
   tournament: Tournament;
   challengers: string[];
@@ -16,9 +20,13 @@ export class TournamentService {
 
   startFlag = false;
 
-  constructor(private http: Http) { }
+  constructor(public db: AngularFirestore) { 
+    
+  }
 
   buildTournament() {
+    this.getTournaments(this.userId).subscribe();
+
     this.tournament = { userId: this.userId, teams: [], games: [], dateBeggin: new Date() };
 
 
@@ -156,18 +164,26 @@ export class TournamentService {
     return this.tournament.games[nextMatchIndex];
 
   }
-  postTournament() {
+  postTournament(id: string) {
+
+    
     this.tournament.dateFinish = new Date();
 
-    let url = 'http://localhost:3000/api/tournaments';
+    this.tournamentsCollection.add(this.tournament);
+  }
 
-    let body = this.tournament;
+  getTournaments(id = null) {
+    this.tournamentsCollection = this.db.collection<any>('tournaments',
+                                                  ref => ref.where('userId', '==', id));
 
-    let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-
-
-
-    return this.http.post(url, body, { headers });
+    return this.tournamentsCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        console.log(data);
+        return { id, ...data };
+      }))
+    );
   }
 
 }

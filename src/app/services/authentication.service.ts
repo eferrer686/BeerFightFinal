@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Headers } from '@angular/http';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { User } from '../interfaces/user.interface';
-
+import { Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { async } from 'q';
+import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 
 
@@ -13,41 +14,49 @@ import { User } from '../interfaces/user.interface';
 })
 
 export class AuthenticationService {
+  usersCollection: AngularFirestoreCollection<any>;
+  usersSnapshot: Observable<any[]>;
+  users: User[];
 
-  constructor(private http: Http) {
+  user: User;
+
+  constructor(public db: AngularFirestore,
+    private router: Router) {
 
   }
 
   public login() {
 
-    let url = 'http://localhost:3000/api/users';
 
-    let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
+    this.usersCollection = this.db.collection<any>('users');
 
-    return this.http.get(url, { headers });
+    return this.usersCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+
   }
+
   public registerUser(user: User) {
 
-    let url = 'http://localhost:3000/api/users';
+    this.usersCollection = this.db.collection<any>('users');
+    this.usersCollection.add(user);
+  }
 
-    let body = user;
-
-    let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-
-
-    //console.log([url, body, headers]);
-
-
-
-    return this.http.post(url, body, { headers });
+  logout() {
+    this.user = null;
 
   }
-  public delete(userId) {
 
-    let url = `http://localhost:3000/api/users/${userId}`;
-
-    let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-
-    return this.http.delete(url, { headers });
+  isLogged(id: string) {
+    return this.user !== null && this.user.id === id;
   }
+}
+
+export class EmailPasswordCredentials {
+  email: string;
+  password: string;
 }

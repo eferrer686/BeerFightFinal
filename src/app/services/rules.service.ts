@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Rules } from '../interfaces/rules.interface';
 import { Http, Headers } from '@angular/http';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -8,39 +10,31 @@ import { Http, Headers } from '@angular/http';
 })
 export class RulesService {
 
-  constructor(private http: Http) { }
+  rulesCollection: AngularFirestoreCollection;
 
-  public getRules() {
+  constructor(public db: AngularFirestore) { }
 
-    let url = 'http://localhost:3000/api/rules';
+  public getRules(id: string) {
 
-    let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
+    this.rulesCollection = this.db.collection<any>('rules',
+                                                  ref => ref.where('userId', '==', id));
 
-    return this.http.get(url);
+    return this.rulesCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        //console.log(data);
+        return { id, ...data };
+      }))
+    );
   }
   public postRules(rules: Rules) {
 
-    let url = 'http://localhost:3000/api/rules';
-
-    let body = rules;
-
-    let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-
-
-
-    return this.http.post(url, body, { headers });
+    this.rulesCollection.add(rules);
 
   }
 
   public deleteRule(id: string) {
-    let url = `http://localhost:3000/api/rules/${id}`;
-
-
-
-    let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-
-    console.log([url, headers]);
-
-    return this.http.delete(url, { headers });
+    this.rulesCollection.doc(id).delete();
   }
 }

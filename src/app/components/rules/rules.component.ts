@@ -58,16 +58,13 @@ export class RulesComponent implements OnInit {
 
     this.rules = [];
 
-    this.rulesService.getRules().subscribe(data => {
-      let rules = JSON.parse(data['_body']);
-      for (let rule of rules) {
-
-        if (rule.userId === '' || rule.userId === this.userId) {
-          this.rules.push(<Rules>rule);
-        }
-      }
+    this.rulesService.getRules(this.userId).subscribe(data => {
+      
+      this.rules = data;
       this.setRules({ 'rules': ['Select Ruleset'] });
+
     });
+
   }
 
   addNewRule() {
@@ -91,18 +88,13 @@ export class RulesComponent implements OnInit {
       userId : this.userId
     };
 
-    this.rulesService.postRules(newRules).subscribe(data => {
-
-
-    });
+    this.rulesService.postRules(newRules);
     this.getRules();
   }
 
   deleteRule() {
     if (this.ruleSelectedId != null) {
-      this.rulesService.deleteRule(this.ruleSelectedId).subscribe(data => {
-        console.log('rule deleted');
-      });
+      this.rulesService.deleteRule(this.ruleSelectedId);
     }
     this.getRules();
   }

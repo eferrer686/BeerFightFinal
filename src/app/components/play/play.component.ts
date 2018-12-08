@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TournamentService } from 'src/app/services/tournament.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-play',
@@ -14,13 +15,17 @@ export class PlayComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private tournamentService: TournamentService
+    private tournamentService: TournamentService,
+    private auth: AuthenticationService
   ) {
 
     this.activatedRoute.params.subscribe(data => {
       this.userID = data['id'];
 
     });
+    if (!auth.isLogged(this.userID)) {
+      this.logout();
+    }
   }
 
   goToRules() {
@@ -54,6 +59,7 @@ export class PlayComponent implements OnInit {
   }
 
   logout() {
+    this.auth.logout();
     this.router.navigate(['/login']);
   }
 

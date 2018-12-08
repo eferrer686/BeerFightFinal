@@ -12,18 +12,7 @@ export class SpotifyService {
 
   constructor(private http: HttpClient) {
 
-    let url = 'http://localhost:3000/api/rules';
-
-    let body = {grant_type: 'client_credentials',
-                client_id: '00bf8ccf83f7485dbd1b5ecf1bdb1a2b',
-                client_secret: 'b42f4f43a80d44ec8ebc67d7670e53a0'};
-
-    let headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
-
-    http.post(url, body, {headers}).subscribe(data => {
-      console.log(data);
-      
-    });
+   
 
    }
 
@@ -31,7 +20,7 @@ export class SpotifyService {
      const url = `https://api.spotify.com/v1/${query}`;
 
      const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQD8FWfd4PE7UxChHwpBiRO-KshmzxJy773kPKrrXQtFFS8MTmY0SYBp8Yp0XkRCxXU5KpdSWMxEnREUdl0'
+      'Authorization': 'Bearer BQBmhtfXorFJFTJ_VREbCMDDOcCoPN8J4q9yqKJwMB77gTj_HaPGYeth_YLB5K8irdI1G2_zY80LJDuZZQc'
     });
 
     return this.http.get(url, {headers});

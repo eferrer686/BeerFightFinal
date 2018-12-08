@@ -40,17 +40,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-  public goToPlay() {
-
-    // this.username = document.getElementById('username').value.toString();
-    // this.password = document.getElementById('password').value.toString();
-
-    /* this.usuarios.forEach(user => {
-      if (this.username === user.name && this.password === user.password) {
-        // gotoplay
-      }
-    }); */
-  }
   public login() {
 
     let controls = this.formLogin.controls;
@@ -65,39 +54,24 @@ export class LoginComponent implements OnInit {
     };
 
     this.auth.login().subscribe(data => {
+      let users = data;
 
-      let users = JSON.parse(data['_body']);
-
-      let userID = null;
+        console.log(users);
+        
 
       for (let i = 0; i < users.length; i++) {
-        //console.log(users[i]);
-
-        if (users[i]['username'] === user.username &&
-          users[i]['password'] === user.password) {
-          userID = users[i]['id'];
-          this.username = user.username;
-          this.password = user.password;
+        if (user.username === users[i]['username'] &&
+          user.password === users[i]['password']) {
           
-          if (users[i].admin) {
-            this.admin = true;
-          }
+          
+          this.auth.user = users[i];
+
+          this.router.navigate(['/play', users[i]['id']]);
         }
-
-
       }
-
-
-      if (this.admin) {
-        this.router.navigate(['/admin', userID]);
-      }
-      else{
-        this.router.navigate(['/play', userID]);
-      }
-
-
 
     });
+
 
 
 

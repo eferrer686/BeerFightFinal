@@ -43,14 +43,8 @@ export class TeamsComponent implements OnInit {
       this.goToCreate();
     }
 
-    this.rulesService.getRules().subscribe(data => {
-      let rules = JSON.parse(data['_body']);
-      for (let rule of rules) {
-
-        if (rule.userId === '' || rule.userId === this.userId) {
-          this.rules.push(<Rules>rule);
-        }
-      }
+    this.rulesService.getRules(this.userId).subscribe(data => {
+      this.rules = data;
     });
 
     this.formRules = new FormGroup({

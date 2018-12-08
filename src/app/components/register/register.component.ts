@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
         username: this.formRegister.controls['username'].value
       };
 
-      this.auth.registerUser(user).subscribe();
+      this.auth.registerUser(user);
 
       this.router.navigate(['/login']);
 

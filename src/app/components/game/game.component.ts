@@ -61,7 +61,7 @@ export class GameComponent {
 
     if (this.currentGame == null) {
 
-      this.tournamentService.postTournament().subscribe();
+      this.tournamentService.postTournament(this.userId);
 
       this.router.navigate(['/winner', this.userId]);
 

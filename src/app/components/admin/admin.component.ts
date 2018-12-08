@@ -28,7 +28,7 @@ export class AdminComponent implements OnInit {
   }
 
   delete(user: User) {
-    this.userService.delete(user.id).subscribe( data => {
+    this.userService.delete(user['id']).subscribe( data => {
       this.update();
     });
   }
