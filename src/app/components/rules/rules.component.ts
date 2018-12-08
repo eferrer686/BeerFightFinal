@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RulesComponent implements OnInit {
 
-  rules: Rules[] = [];
+  rules: any[] = [];
   ruleSelected: string[];
   ruleSelectedId: string;
   newRule = false;

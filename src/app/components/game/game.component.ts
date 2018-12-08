@@ -12,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class GameComponent {
   tournament: Tournament;
-  userId: Tournament;
+  userId: string;
   currentGame: Game;
 
 

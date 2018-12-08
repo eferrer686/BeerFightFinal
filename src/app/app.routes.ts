@@ -11,7 +11,6 @@ import { TeamsComponent } from './components/teams/teams.component';
 import { GameComponent } from './components/game/game.component';
 import { WinnerComponent } from './components/winner/winner.component';
 import { RegisterComponent } from './components/register/register.component';
-import { AdminComponent } from './components/admin/admin.component';
 
 
 const APP_RUOTES: Routes = [
@@ -26,7 +25,7 @@ const APP_RUOTES: Routes = [
     { path: 'game/:id', component: GameComponent},
     { path: 'winner/:id', component: WinnerComponent},
     { path: 'register', component: RegisterComponent},
-    { path: 'admin/:id', component: AdminComponent},
+    
     {path: '**', pathMatch: 'full', redirectTo: 'login'}
 ];
 

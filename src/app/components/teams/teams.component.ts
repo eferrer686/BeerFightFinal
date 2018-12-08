@@ -17,7 +17,7 @@ export class TeamsComponent implements OnInit {
   teamSize: number;
   userId: string;
 
-  rules: Rules[] = [];
+  rules: any[] = [];
   selectedRules: Rules;
 
   formRules: FormGroup;

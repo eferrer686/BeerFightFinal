@@ -9,7 +9,7 @@
         </div>
       </div>
         <div class="row inputChallenger">
-          <div *ngFor="let challenger of formChallengers.controls['challengers'].controls; let i = index"
+          <div *ngFor="let challenger of formChallengers.controls['challengers']['controls']; let i = index"
                 formArrayName="challengers" class="col-10">
             <input  
                     [formControlName]="i"

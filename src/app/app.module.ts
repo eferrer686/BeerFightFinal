@@ -20,7 +20,6 @@ import { GameComponent } from './components/game/game.component';
 import { WinnerComponent } from './components/winner/winner.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SpotifyComponent } from './components/spotify/spotify.component';
-import { AdminComponent } from './components/admin/admin.component';
 
 //Pipes
 import { DomseguroPipe } from './pipes/domseguro.pip';
@@ -50,8 +49,7 @@ import { environment } from '../environments/environment';
     WinnerComponent,
     RegisterComponent,
     SpotifyComponent,
-    DomseguroPipe,
-    AdminComponent
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,

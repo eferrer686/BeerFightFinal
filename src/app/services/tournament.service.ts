@@ -180,7 +180,7 @@ export class TournamentService {
       map(actions => actions.map(a => {
         const data = a.payload.doc.data();
         const id = a.payload.doc.id;
-        console.log(data);
+        //console.log(data);
         return { id, ...data };
       }))
     );

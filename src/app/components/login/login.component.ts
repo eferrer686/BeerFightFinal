@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     this.auth.login().subscribe(data => {
       let users = data;
 
-        console.log(users);
+        //console.log(users);
         
 
       for (let i = 0; i < users.length; i++) {
